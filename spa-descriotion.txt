@@ -1,0 +1,50 @@
+Assignment - Book Catalog
+Technologies
+1. HTML
+2. CSS
+3. JavaScript
+4. jQuery
+5. Bootstrap
+
+Description:
+Make a single page application that makes a call to google apis and displays books by category. The default category is JavaScript. There must be a search box that accepts text and makes a call to google apis again to display the books from the searched category. The books must be displayed with image, title, publisher and pages count. The Image and Title must be visible in the catalog, but the publisher and the pages must be displayed when you click on the title.
+
+Optional
+1. You can check the full JSON from google apis and display more properties of the books.
+2. Error Handling
+3. Navigation Bar with some default categories
+
+------------------------------------------------
+How to access google apis:
+1. include the util.js into your html page
+2. form your url - https://www.googleapis.com/books/v1/volumes?q=CATEGORY
+replace "CATEGORY" with the category you want to request.
+3. make AJAX call to the formed url. In the util.js you have a pre-defined function that will return your settings for the $.ajax. Just make sure you give the proper url
+EXAMPLE: $.ajax(settings(url)).done(callback)
+4. when you receive the response extract the items property from the response
+EXAMPLE: yourajaxcode///.done(response => response.items)
+5. response.items is an array of books. Pass that array to another function to display them to the client
+6. Itterate through the array of books and display each book. Each book has the following structure:
+{
+	volumeInfo: {
+		title: "book title",
+		authors: [
+			"author 1",
+			"author 2"
+		],
+		publisher: "Publisher name",
+		publishedDate: "2000",
+		pageCount: 511,
+		imageLinks: {
+			smallThumbnail: "http://googleImageLink",
+			thumbnail: "http://googleImageLink"
+		}
+	},
+	saleInfo: {saleInfoObject},
+	accessInfo: {accessInfoObject}
+}
+You are interested int the volumeInfo property of the book. There you can find all the essential inforamtion you need, including the imageLinks for you images.
+
+
+***HINT: By default your category should be JavaScript. You should always make your first call to the google apis requesting the books for JavaScript. After that whatever the client types in the search box you should ask google apis for the books from that category. Keep in mind that the search box is a input field of type text and you can type in whatever you want or you can hit the search button with empty search field. Try to handle the errors that occur there.
+*** Keep in mind that sometimes there wont be available pictures for certain books. Try to handle those errors and find a solution for those cases.

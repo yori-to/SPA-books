@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book catalog</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   
+    <script src="util.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-md-8 site-title">
+                    <h1>Books available for "<span id="title">JavaScript</span>"</h1>
+                </div>
+                <div class="col-md-4 d-flex justify-content-end align-items-center searchbar">
+                    <form  id="btn-search" class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" id="site-search" placeholder="Search" name="q">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <div class="nav-scroller py-1 mb-2">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <h5 class="nav-link">Topics:</h5>
+                </li>
+                <li class="nav-item">
+                    <a class="category-link nav-link active" href="#">JavaScript</a>
+                </li>
+                <li class="nav-item">
+                    <a class="category-link nav-link" href="#">Java</a>
+                </li>
+                <li class="nav-item">
+                    <a class="category-link nav-link" href="#">HTML</a>
+                </li>
+                <li class="nav-item">
+                    <a class="category-link nav-link" href="#">CSS</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-scroller py-1 mb-2">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <h5 class="nav-link">Language:</h5>
+                </li>
+                <li class="nav-item">
+                        <a class="lang-link nav-link active" href="#">All</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="lang-link nav-link" href="#">English</a>
+                </li>
+                <li class="nav-item">
+                    <a class="lang-link nav-link" href="#">Dutch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="lang-link nav-link" href="#">Bulgarian</a>
+                </li>
+                <li class="nav-item">
+                    <a class="lang-link nav-link" href="#">Polish</a>
+                </li>
+            </ul>
+        </div>
+        <div class="text-center">
+            <div class="spinner-border" role="status" id="spinner">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        
+        <div class="alert col-md-12" role="alert" style="display:none;" id="form-alert"></div>
+
+        <!-- Book list -->
+        <div class="container">
+            <div class="row" id="book-list"></div>
+        </div>    
+    </div>
+</body>
+</html>
